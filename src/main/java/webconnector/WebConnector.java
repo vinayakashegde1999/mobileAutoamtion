@@ -1,9 +1,9 @@
 package webconnector;
+
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.SessionId;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -11,55 +11,50 @@ import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Properties;
 
-import static io.appium.java_client.remote.AutomationName.APPIUM;
-
 public class WebConnector<v> {
 
-public static WebDriver driver =null;
-public SessionId session = null;
-public static Properties prop = new Properties();
+    //private SessionId session = null;
+    private final Properties prop = new Properties();
+    private static WebDriver driver = null;
 
 
-public WebConnector(){
-    try{
+    public WebConnector() {
+        try {
             prop.load(new FileInputStream("src/test/config/application.properties"));
-    }catch (IOException e){
-        e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
 
+        }
     }
-}
 
-public WebDriver getDriver(){
-    return this.driver;
-}
-
-
-public  void setDriver(WebDriver driver){
-       this.driver=driver;
-}
+    public WebDriver getDriver() {
+        return driver;
+    }
 
 
-public void setUpDriver() throws MalformedURLException{
+    public void setDriver(WebDriver driver) {
+        this.driver = driver;
+    }
 
-    String os = "ios";//System.getProperty("deviceType");
 
-    switch (os){
-        case "android" :
+    public void setUpDriver() throws MalformedURLException {
+
+        String os = System.getProperty("deviceType");
+
+        switch (os) {
+            case "android":
                 androidSetUp();
                 break;
-        case "ios"  :
+            case "ios":
                 iosSetUp();
                 break;
-        default:
-            throw new IllegalArgumentException( " No valid  Opertaing system selecetd ..");
+            default:
+                throw new IllegalArgumentException(" invalid  operating system selected ..");
+
+        }
+
 
     }
-
-
-
-
-
-}
 
     private void iosSetUp() throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();

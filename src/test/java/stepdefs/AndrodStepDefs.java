@@ -4,15 +4,15 @@ import ApplicationPages.AndroidPages;
 import io.cucumber.java.en.Given;
 
 public class AndrodStepDefs {
-    private AndroidPages androidEle ;
+    private AndroidPages androidEle;
 
-    public AndrodStepDefs(){
+    public AndrodStepDefs() {
         this.androidEle = new AndroidPages();
 
     }
 
     @Given("user pass the date to andrid apps")
-    public void andoiddatepicker() throws Exception{
-            androidEle.androidDatePicker();
-        }
+    public void andoiddatepicker() throws Exception {
+        androidEle.androidDatePicker();
+    }
 }

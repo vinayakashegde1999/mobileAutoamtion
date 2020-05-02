@@ -62,19 +62,19 @@
             <version>4.13</version>
         </dependency>
         <!--<dependency>-->
-            <!--<groupId>org.testng</groupId>-->
-            <!--<artifactId>testng</artifactId>-->
-            <!--<version>7.0.0-beta1</version>-->
+        <!--<groupId>org.testng</groupId>-->
+        <!--<artifactId>testng</artifactId>-->
+        <!--<version>7.0.0-beta1</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>io.cucumber</groupId>-->
-            <!--<artifactId>cucumber-java</artifactId>-->
-            <!--<version>5.3.0</version>-->
+        <!--<groupId>io.cucumber</groupId>-->
+        <!--<artifactId>cucumber-java</artifactId>-->
+        <!--<version>5.3.0</version>-->
         <!--</dependency>-->
         <!--<dependency>-->
-            <!--<groupId>org.testng</groupId>-->
-            <!--<artifactId>testng</artifactId>-->
-            <!--<version>7.0.0-beta1</version>-->
+        <!--<groupId>org.testng</groupId>-->
+        <!--<artifactId>testng</artifactId>-->
+        <!--<version>7.0.0-beta1</version>-->
         <!--</dependency>-->
 
 
@@ -115,10 +115,10 @@
                             <!-- OPTIONAL UNCOMMENT BELOW 6 LINES - To set data provider thread
                                 count value.Default is 10. For executing using parallel or forking -->
                             <!--<properties>-->
-                                <!--<property>-->
-                                    <!--<name>dataproviderthreadcount</name>-->
-                                    <!--<value>1</value>-->
-                                <!--</property>-->
+                            <!--<property>-->
+                            <!--<name>dataproviderthreadcount</name>-->
+                            <!--<value>1</value>-->
+                            <!--</property>-->
                             <!--</properties>-->
                             <!-- OPTIONAL UNCOMMENT BELOW 3 LINES - In case of multiple runners
                                 to further reduce times. For executing using parallel -->
@@ -128,7 +128,7 @@
                         </configuration>
                     </execution>
                 </executions>
-</plugin>
+            </plugin>
 
         </plugins>
     </build>

@@ -11,15 +11,15 @@ import java.net.MalformedURLException;
 public class BaseClass extends WebConnector {
     public static String featureName;
 
-@Before
-public void before(Scenario scenario)throws MalformedURLException{
+    @Before
+    public void before(Scenario scenario) throws MalformedURLException {
 //String featureName =
-setUpDriver();
-}
+        setUpDriver();
+    }
 
-@After
-    public void aftertest(){
-    tearDown();
-}
+    @After
+    public void aftertest() {
+        tearDown();
+    }
 
 }
