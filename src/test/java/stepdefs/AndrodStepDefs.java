@@ -1,6 +1,6 @@
-package mobile.stepdefs;
+package stepdefs;
 
-import mobile.ApplicationPages.AndroidPages;
+import ApplicationPages.AndroidPages;
 import io.cucumber.java.en.Given;
 
 public class AndrodStepDefs {
@@ -11,9 +11,8 @@ public class AndrodStepDefs {
 
     }
 
-    @Given("^user pass the date to andrid apps$")
-        public void andoiddatepicker() throws Exception{
+    @Given("user pass the date to andrid apps")
+    public void andoiddatepicker() throws Exception{
             androidEle.androidDatePicker();
-
         }
 }

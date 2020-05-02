@@ -1,13 +1,14 @@
-package mobile.runner;
+package runner;
 
 import io.cucumber.testng.CucumberOptions;
-import mobile.ConstantVariables.Constant;
+import ConstantVariables.Constant;
+import org.junit.runner.RunWith;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-
-@CucumberOptions(tags = {Constant.tags},glue = {"stepdefs"}, plugin = {"html:target/cucumber-reports/cucumber-pretty","json:target/json-cucumber-reports/default/cukejson.json",
-        "testng:target/testng-cucumber-reports/cuketestng.xml" }, features = {"/features"})
+//@RunWith(Cucumber.class)
+@CucumberOptions(tags = {Constant.tags},glue = {"stepdefs"}, plugin = {"html:target/cucumber-reports/cucumber-pretty",  "json:target/json-cucumber-reports/default/cukejson.json",
+        "testng:target/testng-cucumber-reports/cuketestng.xml" }, features = {"src/test/resource/Feature"})
 public class Default extends AbstractTestNGCucumberParallelTests{
         private static long duration;
 

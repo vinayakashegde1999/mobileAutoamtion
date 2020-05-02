@@ -22,7 +22,7 @@ public static Properties prop = new Properties();
 
 public WebConnector(){
     try{
-            prop.load(new FileInputStream("../src/test/config/application.properties"));
+            prop.load(new FileInputStream("src/test/config/application.properties"));
     }catch (IOException e){
         e.printStackTrace();
 
@@ -41,7 +41,7 @@ public  void setDriver(WebDriver driver){
 
 public void setUpDriver() throws MalformedURLException{
 
-    String os = System.getProperty("deviceType");
+    String os = "ios";//System.getProperty("deviceType");
 
     switch (os){
         case "android" :

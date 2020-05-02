@@ -1,4 +1,4 @@
-package mobile.ApplicationPages;
+package ApplicationPages;
 
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -16,9 +16,7 @@ public class AndroidPages {
 
            // System.out.println(wc.getDriver().getCurrentPackage());
             System.out.println("hooooo ooooo");
-            // System.out.println(driver.getPageSource());
             WebDriverWait wait = new WebDriverWait(wc.getDriver(),5);
-//23/24/26/28/29
 
 
             String CurrentDate= wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("android:id/date_picker_header_date"))).getText();

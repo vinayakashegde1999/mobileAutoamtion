@@ -1,4 +1,4 @@
-package mobile.stepdefs;
+package stepdefs;
 
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
