@@ -1,0 +1,6 @@
+Feature: Select date in Andoid Apps
+
+  @datePicker
+Scenario:Select date
+Given user pass the date to andrid apps
+Then User sees the selected date
