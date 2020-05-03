@@ -1,5 +1,10 @@
 ### Automating Android and IOS APP
 
+    This is Automation scripts written with Appium Java and Cucumber for IOS and Android Date picker apps which builds with different UI lay outs
+    
+    In this Autoamtion challenge i have used same Date format DD/MM/YYYY and used Java Date functions to achive the respective date select in IOS and Android Apps
+    
+    I have abstrated Driver , Framework Business and Impentation logics separetly in different packages and class.
 
 
 
@@ -37,3 +42,63 @@
     │               ├── androidTests.feature    // Android BDD Tests
     │               └── iOSTests.feature        // IOS BDD Tests
     
+    
+    
+    
+ ### To Run IOS Tests 
+    Build the App in XCode ( I have faced issue while building in my Xcode due to Swfit version mismatch for this i have made change in AppDelegate.swift changed line no 10 with  UIApplicationLaunchOptionsKey  )
+    Provide the  path  to App in     src/test/config/application.properties ->  iosApp or alternatvely  you can provide updatedWDABundleId also
+    To Execute tests  run the below command in project root 
+    mvn clean install test -DdeviceType=ios -Dcucumber.options="--tags '@IosdatePicker'"
+     
+     
+  ### To Run Android Tests 
+     Build the App in Android Studio
+     Provide the  path  to App in     src/test/config/application.properties ->  androidApp 
+     To Execute tests  run the below command in project root 
+     mvn clean install test -DdeviceType=android  -Dcucumber.options="--tags '@androiddatePicker'"
+     
+ 
+ ### Sample run results
+    Android
+    DURATION - 100546
+    
+    5 Scenarios (5 passed)
+    5 Steps (5 passed)
+    1m40.547s
+    
+    
+    [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 101.919 s - in runner.Default
+    [INFO] 
+    [INFO] Results:
+    [INFO] 
+    [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0
+    [INFO] 
+    [INFO] 
+    
+    ![Android Cucumber output](src/test/resource/images/AndroidResuts.png)
+    
+    IOS
+    
+    DURATION - 42892
+    
+    3 Scenarios (3 passed)
+    3 Steps (3 passed)
+    0m42.894s
+    
+    
+    [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 44.063 s - in runner.Default
+    [INFO] 
+    [INFO] Results:
+    [INFO] 
+    [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+    [INFO] 
+    [INFO] 
+    
+    ![IOS  Cucumber output](src/test/resource/images/IOSResults.png)
+
+    
+
+    
+     
+          

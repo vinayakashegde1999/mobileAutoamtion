@@ -20,7 +20,7 @@ public class WebConnector<v> {
 
     public WebConnector() {
         try {
-            prop.load(new FileInputStream("src/test/config/application.properties"));
+            prop.load(new FileInputStream("src/test/config/application.properties"));  //Path for Properties files to load the driver properties
         } catch (IOException e) {
             e.printStackTrace();
 
@@ -28,13 +28,13 @@ public class WebConnector<v> {
     }
 
     public WebDriver getDriver() {
-        return driver;
+        return driver;             //Path for Properties files to load the driver properties
     }
 
 
     public void setDriver(WebDriver driver) {
 
-        this.driver = driver;
+        this.driver = driver;           //Set driver for required OS
     }
 
 
