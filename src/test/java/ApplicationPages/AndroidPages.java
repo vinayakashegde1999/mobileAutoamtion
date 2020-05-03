@@ -1,72 +1,56 @@
 package ApplicationPages;
 
+import ConstantVariables.Constant;
+import helper.helper;
 import io.appium.java_client.MobileBy;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import webconnector.WebConnector;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.Locale;
-
 public class AndroidPages {
+
     WebConnector wc = new WebConnector();
+    helper hp = new helper();
 
-    public void androidDatePicker() {
+    public void androidDatePicker(String testDate) {
 
-        // System.out.println(wc.getDriver().getCurrentPackage());
-        System.out.println("hooooo ooooo");
-        WebDriverWait wait = new WebDriverWait(wc.getDriver(), 5);
+        WebDriverWait wait = new WebDriverWait(wc.getDriver(), Constant.waitFor);
+        String CurrentDate = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id(Constant.androidDateHeader))).getText();
 
-
-        String CurrentDate = wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("android:id/date_picker_header_date"))).getText();
-        // DateFormat format2=new SimpleDateFormat("EEEE");
-        // String finalDay=format2.format(CurrentDate);
-
-        String darw = "28/02/2020";
+        int appMonth = 0;
+        String darw = testDate;
+        String[] givenDate = darw.split("/");
         try {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-            sdf.setLenient(false);
-            sdf.parse(darw);
-            String[] givenDate = darw.split("/");
-            int expecetMonth = Integer.parseInt(givenDate[1]);
-            String[] dates = CurrentDate.split(" ");
-            Date date = null;
 
-            date = new SimpleDateFormat("MMM", Locale.ENGLISH).parse(dates[1]);
+            if (hp.dateVAlidater(testDate)) {
+                int testDataMonth = hp.getMonth(testDate);
+                appMonth = hp.getMonthFromString(CurrentDate);
 
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            int month = cal.get(Calendar.MONTH);
-            System.out.println(month);
-            int monthNeedtoTravers = month + 1;
-
-            if (expecetMonth > monthNeedtoTravers) {
-
-                monthNeedtoTravers = Math.abs((expecetMonth - monthNeedtoTravers));
-                System.out.println("Months need to loop: expecetd months are greaters" + monthNeedtoTravers);
-
-                for (int i = 1; i <= monthNeedtoTravers; i++) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("android:id/next"))).click();
+                if (testDataMonth > appMonth) {
+                    appMonth = Math.abs((testDataMonth - appMonth));
+                    for (int i = 1; i <= appMonth; i++) {
+                        wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id(Constant.androidCalenderNext))).click();
+                    }
                 }
+                if (testDataMonth <= appMonth) {
+                    appMonth = Math.abs((appMonth - testDataMonth));
+                    for (int i = 1; i <= appMonth; i++) {
+                        wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id(Constant.androidCalenderPrevious))).click();
+                    }
 
-            }
-            if (expecetMonth <= monthNeedtoTravers) {
-                monthNeedtoTravers = Math.abs((monthNeedtoTravers - expecetMonth));
-                System.out.println("Months need to loop expecetd i slesser:" + monthNeedtoTravers);
-                for (int i = 1; i <= monthNeedtoTravers; i++) {
-                    wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id("android:id/prev"))).click();
                 }
-
             }
-
-            System.out.println("Loop THis many times" + monthNeedtoTravers);
-
 
             wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.xpath("//*[@text='" + givenDate[0] + "']"))).click();
-            // driver.wait(10);
-            Thread.sleep(10000);
+            String presentState= wait.until(ExpectedConditions.presenceOfElementLocated(MobileBy.id(Constant.androidDateHeader))).
+                    getText();
+            Assert.assertTrue(presentState.contains(hp.getMonth(Integer.parseInt(givenDate[1]))+" "+givenDate[0]) ,"Expected"+hp.returnMonthFromStringDate(testDate)+" "+givenDate[0] + " Actual: "+presentState);
+
+
+
+
+
         } catch (Exception e) {
             e.printStackTrace();
         }

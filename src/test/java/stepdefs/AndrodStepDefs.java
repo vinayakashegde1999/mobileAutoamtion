@@ -11,8 +11,12 @@ public class AndrodStepDefs {
 
     }
 
-    @Given("user pass the date to andrid apps")
-    public void andoiddatepicker() throws Exception {
-        androidEle.androidDatePicker();
+
+
+    @Given("^User selects the (.*?)$")
+    public  void user_selects_the_date_android(String date){
+        androidEle.androidDatePicker(date);
+
     }
+
 }

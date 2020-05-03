@@ -33,6 +33,7 @@ public class WebConnector<v> {
 
 
     public void setDriver(WebDriver driver) {
+
         this.driver = driver;
     }
 
@@ -68,13 +69,13 @@ public class WebConnector<v> {
     }
 
     private void androidSetUp() throws MalformedURLException {
+
         DesiredCapabilities caps = new DesiredCapabilities();
         caps.setCapability("platformName", prop.getProperty("androidPlatformName"));
         caps.setCapability("platformVersion", prop.getProperty("androidPlatformVersion"));
         caps.setCapability("deviceName", prop.getProperty("androidDeviceName"));
         caps.setCapability("automationName", prop.getProperty("androidAutomationName"));
         caps.setCapability("app", prop.getProperty("androidApp"));
-
         driver = new AndroidDriver(new URL(prop.getProperty("APPIUM")), caps);
     }
 

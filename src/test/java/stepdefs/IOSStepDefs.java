@@ -12,8 +12,9 @@ public class IOSStepDefs {
 
     }
 
-    @Given("user pass the date to IOS apps")
-    public void andoiddatepicker() throws Exception {
-        iosEle.ioSDatePicker();
+    @Given("^User select date on ios app (.*?)$")
+    public void andoiddatepicker(String testDate) throws Exception {
+        System.out.println("Given dates are "+testDate);
+        iosEle.ioSDatePicker(testDate);
     }
 }

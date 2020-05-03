@@ -7,7 +7,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 //@RunWith(Cucumber.class)
-@CucumberOptions(tags = {Constant.tags},glue = {"stepdefs"}, plugin = {"html:target/cucumber-reports/cucumber-pretty",  "json:target/json-cucumber-reports/default/cukejson.json",
+@CucumberOptions(glue = {"stepdefs"}, plugin = {"html:target/cucumber-reports/cucumber-pretty",  "json:target/json-cucumber-reports/default/cukejson.json",
         "testng:target/testng-cucumber-reports/cuketestng.xml" }, features = {"src/test/resource/Feature"})
 public class Default extends AbstractTestNGCucumberParallelTests{
         private static long duration;
